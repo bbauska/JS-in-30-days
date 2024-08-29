@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Day 16: JavaScript Challenge</title>
+  <meta name="description"
+        content="Dynamically changing box shadow in accord to mouse movement is quite fun to me.If you add event listener that listens to mousemove event toblock-level elemen...">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/08/19/day16-javascript-challenge" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Day 16: JavaScript Challenge | miayam.github.io</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Day 16: JavaScript Challenge" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Dynamically changing box shadow in accord to mouse movement is quite fun to me. If you add event listener that listens to mousemove event to block-level element that wraps another block-level element (div that consists of article for example), the target element it listens to (event.target) sometime confuses us. We expect the coordinate of mouse movement be relative to parent element, but when we hover over the upper right corner of its child element, the mouse coordinate (event.offsetX and event.offsetY) turn to (0, 0). That’s strange. To fix this problem, we have to adjust the child element’s coordinate by adding the gap width between parent and child element to the current coordinate. It’s not that fancy, not as fancy as メリー メディオーアティ’s teaching method. Here’s how it’s done. Markup &lt;div class=&quot;hero&quot;&gt; &lt;article contenteditable&gt; &lt;img class=&quot;logo logo-js&quot; src=&quot;miayam.png&quot; alt=&quot;logo&quot;&gt; &lt;/article&gt; &lt;/div&gt; JavaScript As usual, I will explain the snippet above incrementally but thoroughly. Here’s the demo." />
+<meta property="og:description" content="Dynamically changing box shadow in accord to mouse movement is quite fun to me. If you add event listener that listens to mousemove event to block-level element that wraps another block-level element (div that consists of article for example), the target element it listens to (event.target) sometime confuses us. We expect the coordinate of mouse movement be relative to parent element, but when we hover over the upper right corner of its child element, the mouse coordinate (event.offsetX and event.offsetY) turn to (0, 0). That’s strange. To fix this problem, we have to adjust the child element’s coordinate by adding the gap width between parent and child element to the current coordinate. It’s not that fancy, not as fancy as メリー メディオーアティ’s teaching method. Here’s how it’s done. Markup &lt;div class=&quot;hero&quot;&gt; &lt;article contenteditable&gt; &lt;img class=&quot;logo logo-js&quot; src=&quot;miayam.png&quot; alt=&quot;logo&quot;&gt; &lt;/article&gt; &lt;/div&gt; JavaScript As usual, I will explain the snippet above incrementally but thoroughly. Here’s the demo." />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/08/19/day16-javascript-challenge" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/08/19/day16-javascript-challenge" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-08-19T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Day 16: JavaScript Challenge" />
+<script type="application/ld+json">
+{"headline":"Day 16: JavaScript Challenge","dateModified":"2017-08-19T00:00:00+00:00","description":"Dynamically changing box shadow in accord to mouse movement is quite fun to me. If you add event listener that listens to mousemove event to block-level element that wraps another block-level element (div that consists of article for example), the target element it listens to (event.target) sometime confuses us. We expect the coordinate of mouse movement be relative to parent element, but when we hover over the upper right corner of its child element, the mouse coordinate (event.offsetX and event.offsetY) turn to (0, 0). That’s strange. To fix this problem, we have to adjust the child element’s coordinate by adding the gap width between parent and child element to the current coordinate. It’s not that fancy, not as fancy as メリー メディオーアティ’s teaching method. Here’s how it’s done. Markup &lt;div class=&quot;hero&quot;&gt; &lt;article contenteditable&gt; &lt;img class=&quot;logo logo-js&quot; src=&quot;miayam.png&quot; alt=&quot;logo&quot;&gt; &lt;/article&gt; &lt;/div&gt; JavaScript As usual, I will explain the snippet above incrementally but thoroughly. Here’s the demo.","datePublished":"2017-08-19T00:00:00+00:00","url":"https://miayam.github.io/javascript/2017/08/19/day16-javascript-challenge","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://miayam.github.io/javascript/2017/08/19/day16-javascript-challenge"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 165px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious Meal for Thought</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Day 16: JavaScript Challenge</h1>
+    <p class="post-meta">
+      <time datetime="2017-08-19T00:00:00+00:00"
+            itemprop="datePublished"
+            class="media-heading">
+        19 August 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Dynamically changing box shadow in accord to mouse movement is quite fun to me.</p>
+
+<p>If you add event listener that listens to <code class="language-plaintext highlighter-rouge">mousemove</code> event to
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements" target="_blank">block-level element</a> that
+wraps another <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements" target="_blank">block-level element</a> (<code class="language-plaintext highlighter-rouge">div</code> that consists of <code class="language-plaintext highlighter-rouge">article</code> for example),
+the target element it listens to (<code class="language-plaintext highlighter-rouge">event.target</code>) sometime confuses us. We expect
+the coordinate of mouse movement be relative to parent element,
+but when we hover over the upper right corner of its child element, the mouse coordinate
+(<code class="language-plaintext highlighter-rouge">event.offsetX</code> and <code class="language-plaintext highlighter-rouge">event.offsetY</code>) turn to <code class="language-plaintext highlighter-rouge">(0, 0)</code>. That’s strange.</p>
+
+<p>To fix this problem, we have to adjust the child element’s coordinate by
+adding the gap width between parent and child element to the current
+coordinate. It’s not that fancy, not as fancy
+as メリー メディオーアティ’s teaching method.</p>
+
+<p>Here’s how it’s done.</p>
+
+<h3 id="markup">Markup</h3>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;article</span> <span class="na">contenteditable</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"logo logo-js"</span> <span class="na">src=</span><span class="s">"miayam.png"</span> <span class="na">alt=</span><span class="s">"logo"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/article&gt;</span>
+  <span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h3 id="javascript">JavaScript</h3>
+
+<script src="https://gist.github.com/miayam/92d64a2571e45df9a85deb688e135d1d.js"> </script>
+
+<p>As usual, I will explain the snippet above incrementally but thoroughly.
+Here’s the <a href="/demo_day16" target="_blank">demo</a>.</p>
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/javascript/2017/07/30/day15-javascript-challenge" class="blog-navigation__previous-link">&laquo; Day 15: JavaScript Challenge</a>
+    
+    
+      <a href="/javascript/2017/08/19/day17-javascript-challenge" class="blog-navigation__next-link"> Day 17: JavaScript Challenge &raquo;</a>
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/08/19/day16-javascript-challenge" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</html>
