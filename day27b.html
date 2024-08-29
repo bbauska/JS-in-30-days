@@ -1,0 +1,95 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Intro to CSS 3D transforms</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body class="page--intro">
+
+  <nav class="site-nav">
+    <div class="site-nav__container">
+      <h1 class="site-nav__title"><a href=".">Intro to CSS 3D transforms</a></h1>
+      <ul class="site-nav__list">
+        <li class="nav-item-intro"><a href=".">Introduction</a></li>
+        <li class="nav-item-perspective"><a href="perspective">Perspective</a></li>
+        <li class="nav-item-functions"><a href="3d-transform-functions">3D transform functions</a></li>
+        <li class="nav-item-card"><a href="card-flip">Card flip</a></li>
+        <li class="nav-item-cube"><a href="cube">Cube</a></li>
+        <li class="nav-item-box"><a href="box">Box</a></li>
+        <li class="nav-item-carousel"><a href="carousel">Carousel</a></li>
+        <li class="nav-item-conclusion"><a href="conclusion">Conclusion</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="content" id="content">
+
+    
+      <div class="scene scene--hero">
+        <div class="cube cube--hero is-spinning">
+          <div class="cube__face cube__face--front">front</div>
+          <div class="cube__face cube__face--right">right</div>
+          <div class="cube__face cube__face--back">back</div>
+          <div class="cube__face cube__face--left">left</div>
+          <div class="cube__face cube__face--top">top</div>
+          <div class="cube__face cube__face--bottom">bottom</div>
+        </div>
+      </div>
+    
+
+    <h1>Introduction</h1>
+
+    <p>With the introduction of CSS transforms, elements could be shifted, rotated, slanted, squashed and stretched. Web designers were finally able to catch up to print designers. With CSS 3D transforms, web designers can move past their print counterparts and explore a new realm in graphic design.</p>
+
+<p>Rendering 3D graphics on the web has been around for years. First there was Flash. Then with  <code class="language-plaintext highlighter-rouge">&lt;canvas&gt;</code> and WebGL came <a href="https://threejs.org/">Three.js</a>. WebVR and augmented reality lie around the corner. While these solutions are superb at producing explorable 3D environments, they can be overkill for the main stuff of the web: interfaces. With CSS 3D transforms, front-end developers can enhance their designs by adding a new dimension to traditional websites.</p>
+
+<h2 id="rationale">Rationale</h2>
+
+<p>Before we dive into the third dimension, we owe it to our users to ask how they benefit from this feature.</p>
+
+<p>Let’s be real. CSS was built to style documents. It has since grown to handle applications. But alas, CSS is not ideal for 3D modeling. Instead, 3D transforms should be treated just like its fellow modern features like media queries, gradients, and transitions — as an <strong>add-on.</strong> 3D for websites works best when it adds to your interface, not replaces it. There is plenty of opportunity to use 3D transforms <em>in between</em> the interface, via transitions.</p>
+
+<p>Take for instance the Weather App for early iOS. The application used two views: a details view and an options view. Switching between these two views was done with a 3D flip transition. This afforded the user that the interface had two and only two views, one on each side of the panel.</p>
+
+<p><img src="../img/weather-app-transition.jpg" alt="iPhone Weather App 3D flip transition" /></p>
+
+<p>Also consider carousel cycle plugins. How can you communicate how the slides wrap around to repeat? With 3D, slides are placed side by side one another in a circle in 3D space. In that arrangement, the cyclic pattern of the carousel is self-evident.</p>
+
+<p>3D transforms can be more than just eye candy. We can use them to solve actual interface challenges and make our applications more intuitive.</p>
+
+<h2 id="current-support-environment">Current Support Environment</h2>
+
+<p><a href="https://www.w3.org/TR/css-transforms-1/">The CSS 3D transforms module</a> was first <a href="https://www.w3.org/TR/2009/WD-css3-3d-transforms-20090320/">introduced in 2009</a>. It was authored by members at Apple and was first supported by Safari. Since then, all modern browsers including Chrome, Firefox, Internet Explorer and Edge have added support. View the chart on <a href="https://caniuse.com/#feat=transforms3d">caniuse.com/#feat=transforms3d</a> to check the latest support environment across the browser landscape.</p>
+
+<p>As of 2018, un-prefixed <code class="language-plaintext highlighter-rouge">transform</code> CSS properties are supported by 98% of browsers in use. Adding <code class="language-plaintext highlighter-rouge">-webkit-transform</code> will capture older browsers to get to 99%.</p>
+
+<p>There is one caveat. <a href="http://msdn.microsoft.com/en-us/library/ie/hh673529%28v=vs.85%29.aspx#the_ms_transform_style_property">Internet Explorer 11 does not support <code class="language-plaintext highlighter-rouge">transform-style: preserve-3d</code></a> (we’ll cover this property later). This means IE11 can still use 3D transforms with individual elements, but cannot handle nested elements to build the objects covered in this essay.</p>
+
+<p>Let’s get coding.</p>
+
+<hr />
+
+<p><a href="perspective"><strong>Next: Perspective →</strong></a></p>
+
+
+  </section>
+
+  <footer>
+    <p><a href=".">Intro to CSS 3D transforms</a> by David DeSandro</p>
+    <p>Written content licensed <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY</a>.
+        All example code licensed <a href="https://desandro.mit-license.org/">MIT</a>.</p>
+    <p>Help improve these docs. <a href="https://github.com/desandro/3dtransforms/issues/">Open an issue or pull request on GitHub.</a></p>
+  </footer>
+
+
+  <script src="../js/utils.js"></script>
+  
+
+</body>
+</html>
