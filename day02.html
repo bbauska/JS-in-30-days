@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +22,6 @@
       text-align: center;
       font-size: 10px;
     }
-
     body {
       margin: 0;
       font-size: 2rem;
@@ -32,7 +30,6 @@
       min-height: 100vh;
       align-items: center;
     }
-
     .clock {
       background-image: url(/images/clock.png);
       background-size: contain;
@@ -44,14 +41,12 @@
       position: relative;
       padding: 2rem;
     }
-
     .clock-face {
       position: relative;
       width: 100%;
       height: 100%;
       transform: translateY(-3px); /* account for the height of the clock hands */
     }
-
     .hand {
       width: 50%;
       height: 3px;
@@ -60,7 +55,6 @@
       top: 50%;
       transform-origin: 100%;
     }
-
   </style>
 
   <script>
@@ -71,29 +65,22 @@
 
       function tickTheClock() {
         var now = new Date();
-
         var second = now.getSeconds();
 
         // secondRatio is leftover to be added to the corresponding minute
         // of the date, so the clock will rotate as expected.
-
         // For example: 30 minutes 20 seconds. The minute hand will tick and
         // rotate 180 degree + extra 20 seconds in degree.
         var secondRatio = second / 60;
-
         var secondDegree = (secondRatio * 360) + 90;
-
         var minute = now.getMinutes();
 
         // minuteRatio is also leftover to be added to the corresponding hour
         // of the date.
         var minuteRatio = minute / 60
-
         var minuteDegree = (minute + secondRatio) / 60 * 360 + 90;
-
         var hour = now.getHours();
         var hourDegree = (hour + minuteRatio) / 12 * 360 + 90;
-
         secondHand.style.transform = `rotate(${secondDegree}deg)`;
         minutesHand.style.transform = `rotate(${minuteDegree}deg)`;
         hourHand.style.transform = `rotate(${hourDegree}deg)`;
